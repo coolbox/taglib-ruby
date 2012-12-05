@@ -9,7 +9,7 @@ ENV['CONFIGURE_ARGS'] = configure_args + ENV.fetch('CONFIGURE_ARGS', "")
 
 require 'mkmf'
 
-if `uname -a`.strip[/Linux/i] && `uname -a`.strip[/x86_64/i]
+unless `uname -a`.strip[/Linux/i] && `uname -a`.strip[/x86_64/i]
   def error msg
     message msg + "\n"
     abort

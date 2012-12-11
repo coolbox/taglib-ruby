@@ -1,9 +1,21 @@
 # Default opt dirs to help mkmf find taglib
-if `uname -a`.strip[/Linux/i] && `uname -a`.strip[/x86_64/i]
-  configure_args = "--with-opt-dir=/usr/local:/opt/local:/sw:#{File.join(File.dirname(__FILE__), '../vendor', 'taglib')} "
-else
-  configure_args = "--with-opt-dir=/usr/local:/opt/local:/sw "
+# Decide on the correct builds to use
+configure_args = '--with-opt-dir=/usr/local:/opt/local:/sw'
+compiled_version = ['taglib']
+uname = `uname -a`.strip
+compiled_version << 'linux' if uname[/Linux/i]
+compiled_version << 'osx' if uname[/Darwin/i]
+compiled_version << '64' if uname[/x86_64/i]
+
+filename = File.join(File.dirname(__FILE__), '../vendor', compiled_version.join('-'))
+
+if File.exists? filename
+  configure_args += ":#{filename}"
 end
+
+configure_args += ' '
+
+puts 'configure_args = ' + configure_args.inspect
 
 ENV['CONFIGURE_ARGS'] = configure_args + ENV.fetch('CONFIGURE_ARGS', "")
 

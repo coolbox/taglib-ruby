@@ -3,11 +3,25 @@
 configure_args = '--with-opt-dir=/usr/local:/opt/local:/sw'
 compiled_version = ['taglib']
 uname = `uname -a`.strip
-compiled_version << 'linux' if uname[/Linux/i]
+vendor_dir = File.join(File.dirname(__FILE__), '../vendor')
+
+
+if uname[/Linux/i]
+  compiled_version << 'linux'
+
+  Dir.chdir File.join(vendor_dir, 'taglib-src') do
+    cmd = "make && make install"
+    puts "Running: #{cmd}"
+    puts `#{cmd}`
+  end
+end
+
 compiled_version << 'osx' if uname[/Darwin/i]
 compiled_version << '64' if uname[/x86_64/i]
 
-filename = File.join(File.dirname(__FILE__), '../vendor', compiled_version.join('-'))
+filename = File.join(vendor_dir, compiled_version.join('-'))
+
+
 
 if File.exists? filename
   configure_args += ":#{filename}"

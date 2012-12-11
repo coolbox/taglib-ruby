@@ -1,12 +1,12 @@
-prefix=/home/matthew/taglib-1.8/build_output
-exec_prefix=/home/matthew/taglib-1.8/build_output
-libdir=/home/matthew/taglib-1.8/build_output/lib
-includedir=/home/matthew/taglib-1.8/build_output/include
+prefix=/home/matthew/taglib-1.8/taglib_built
+exec_prefix=/home/matthew/taglib-1.8/taglib_built
+libdir=/home/matthew/taglib-1.8/taglib_built/lib
+includedir=/home/matthew/taglib-1.8/taglib_built/include
 
 
 Name: TagLib C Bindings
 Description: Audio meta-data library (C bindings)
 Requires: taglib
 Version: 1.8.0
-Libs: -L/home/matthew/taglib-1.8/build_output/lib -ltag_c
-Cflags: -I/home/matthew/taglib-1.8/build_output/include/taglib 
+Libs: -L/home/matthew/taglib-1.8/taglib_built/lib -ltag_c
+Cflags: -I/home/matthew/taglib-1.8/taglib_built/include/taglib 

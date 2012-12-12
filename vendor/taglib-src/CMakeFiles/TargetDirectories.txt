@@ -1,0 +1,4 @@
+/home/matthew/taglib-1.8/CMakeFiles/docs.dir
+/home/matthew/taglib-1.8/taglib/CMakeFiles/tag.dir
+/home/matthew/taglib-1.8/bindings/c/CMakeFiles/tag_c.dir
+/home/matthew/taglib-1.8/CMakeFiles/uninstall.dir

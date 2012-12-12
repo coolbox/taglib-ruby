@@ -2,7 +2,7 @@
 *.o
 *.so
 mkmf.log
-Makefile
+ext/**/Makefile
 *.dll
 *.bundle
 

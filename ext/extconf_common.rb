@@ -8,12 +8,10 @@ vendor_dir = File.join(File.dirname(__FILE__), '../vendor')
 
 if uname[/Linux/i]
   compiled_version << 'linux'
-
-  Dir.chdir File.join(vendor_dir, 'taglib-src') do
-    cmd = "make && make install"
-    puts "Running: #{cmd}"
-    puts `#{cmd}`
-  end
+  dir = File.join(vendor_dir, 'taglib-src')
+  cmd = "cd #{dir} && make && make install"
+  puts "Running: '#{cmd}' in '#{`pwd`}'"
+  puts `#{cmd}`
 end
 
 compiled_version << 'osx' if uname[/Darwin/i]

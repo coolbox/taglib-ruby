@@ -3,7 +3,7 @@ module TagLib
     MAJOR = 0
     MINOR = 5
     PATCH = 2
-    BUILD = 9
+    BUILD = 10
 
     STRING = [MAJOR, MINOR, PATCH, BUILD].compact.join('.')
   end

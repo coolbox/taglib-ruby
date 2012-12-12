@@ -8,8 +8,15 @@ vendor_dir = File.join(File.dirname(__FILE__), '../vendor')
 
 if uname[/Linux/i]
   compiled_version << 'linux'
+  dir = File.join(vendor_dir, 'cmake-src')
+  cmake_bin_dir = File.join(vendor_dir, 'cmake-bin')
+  cmd = "cd #{dir} && ./configure --prefix=#{cmake_bin_dir} && make && make install"
+  puts "Running: '#{cmd}' in '#{`pwd`}'"
+  puts `#{cmd}`
+
   dir = File.join(vendor_dir, 'taglib-src')
-  cmd = "cd #{dir} && make && make install"
+  taglib_bin_dir = File.join(vendor_dir, 'taglib-linux-64')
+  cmd = "cd #{dir} && ../cmake-bin/ -DCMAKE_INSTALL_PREFIX=#{} && make && make install"
   puts "Running: '#{cmd}' in '#{`pwd`}'"
   puts `#{cmd}`
 end

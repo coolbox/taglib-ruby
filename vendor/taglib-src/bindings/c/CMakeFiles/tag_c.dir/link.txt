@@ -1,1 +1,0 @@
-/usr/bin/c++  -fPIC  -Wall  -shared -Wl,-soname,libtag_c.so.0 -o libtag_c.so.0.0.0 CMakeFiles/tag_c.dir/tag_c.cpp.o ../../taglib/libtag.so.1.12.0 -Wl,-rpath,/home/matthew/taglib-1.8/taglib: 

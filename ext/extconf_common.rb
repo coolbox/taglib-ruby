@@ -16,7 +16,7 @@ if uname[/Linux/i]
 
   dir = File.join(vendor_dir, 'taglib-src')
   taglib_bin_dir = File.join(vendor_dir, 'taglib-linux-64')
-  cmd = "cd #{dir} && ../cmake-bin/ -DCMAKE_INSTALL_PREFIX=#{} && make && make install"
+  cmd = "cd #{dir} && ../cmake-bin/bin/cmake -DCMAKE_INSTALL_PREFIX=#{taglib_bin_dir} && make && make install"
   puts "Running: '#{cmd}' in '#{`pwd`}'"
   puts `#{cmd}`
 end
